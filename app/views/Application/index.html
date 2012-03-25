@@ -1,2 +1,9 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
+#{set 'moreScripts'}
+    #{script 'geo.js'/}
+#{/set}
+<form id="userForm" name="userinfo" action="/venues" method="get">
+User Name: <input type="text" name="username" /><br />
+<input type="submit" value="Enter Arena"/>
+</form>

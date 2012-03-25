@@ -10,7 +10,16 @@ var error = function(msg){
 	document.write("msg:"+ msg);
 }
 var success = function(position){
-	document.write("latitiute:"+position.coords.latitude+ "<br>" +"longitude="+ position.coords.longitude);
+	jQuery('<input/>', {
+	    name: 'latitude',
+	    type: 'hidden',
+	    value: position.coords.latitude
+	}).appendTo('#userForm');
+	jQuery('<input/>', {
+	    name: 'longitude',
+	    type: 'hidden',
+	    value: position.coords.longitude
+	}).appendTo('#userForm');
 }
 
 $(document).ready(function(){
