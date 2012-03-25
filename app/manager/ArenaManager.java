@@ -18,6 +18,7 @@ public class ArenaManager extends Model {
 		List<User> users = UserManager.getUsersByLocation(user.getLocation());
 		return users;
 	}
+	
 	public static void challenge(User attacker,User attacked,Question question){
 		if(attacker.getPower()>0){
 			attacker.setEngaged(true);

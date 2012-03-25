@@ -28,6 +28,7 @@ public class UserManager extends Model{
 	public static User createUser(String userName){
 		User.Clan clan = getClan();
 		User user = new User(userName, 10, 100, null, null, null, null,clan, false);
+		user.save();
 		return user;
 	}
 	public static User.Clan getClan(){
