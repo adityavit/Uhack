@@ -32,6 +32,10 @@ public class UserManager{
 		Location userLocation = LocationManager.getLocation(location);
 		user = new User(userName, 10, 100, null, null, userLocation, null,clan, false);
 		user.save();
+		}else{
+			Location userLocation = LocationManager.getLocation(location);
+			user.setLocation(userLocation);
+			user.save();
 		}
 		return user;
 	}
