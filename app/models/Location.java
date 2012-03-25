@@ -9,15 +9,27 @@ public class Location extends Model{
 	String name;
 	float latitude;
 	float longitude;
-	
-	
-
-	public Location(String name, float latitude, float longitude) {
+	String fourSquareId;
+		
+	public Location(String name, float latitude, float longitude,
+			String fourSquareId) {
 		super();
 		this.name = name;
 		this.latitude = latitude;
 		this.longitude = longitude;
+		this.fourSquareId = fourSquareId;
 	}
+
+	
+	public String getFourSquareId() {
+		return fourSquareId;
+	}
+
+
+	public void setFourSquareId(String fourSquareId) {
+		this.fourSquareId = fourSquareId;
+	}
+
 
 	public double getLatitude() {
 		return latitude;
