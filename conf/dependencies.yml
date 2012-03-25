@@ -2,3 +2,52 @@
 
 require:
     - play
+    
+User(deepwiz):
+ userName: "deepwiz"
+ power: 10
+ health: 100
+ attacker: null
+ attacked: null
+ location: [wwh]
+ question: null
+
+User(aditya):
+ userName: "aditya"
+ power: 10
+ health: 100
+ attacker: null
+ attacked: null
+ location: [wwh]
+ question: null 
+
+User(dk):
+ userName: "dk"
+ power: 10
+ health: 100
+ attacker: null
+ attacked: null
+ location: [wwh]
+ question: null
+ 
+Question(q1):
+ question: "Which city is the capital of the Indian state of Karnataka?"
+ answer: "Bangalore"
+
+Question(q2):
+ question: "The only American president elected to more than two terms?"
+ answer: "Franklin D. Roosevelt"
+
+Question(q3):
+ question: "Who conducted the first ever Hackathon event?"
+ answer: "OpenBSD"
+
+Location(wwh):
+ name: "Warren Weaver Hall"
+ latitude: null
+ longitude: null
+
+Location(nyustarbucks):
+ name: "NYU Star Bucks"
+ latitude: null
+ longitude: null
