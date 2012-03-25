@@ -8,11 +8,11 @@ Please Checkin to the closest location.
 	<input type="hidden" name="username" value="${username}"/>
 	<div class="venueDiv">	
 		<div align="center">
-    	#{list items:locations, as:'location' }
-        	<input type="radio" name="location" value="${location.id}" />${location}<br/>
+    	#{list items:locations, as:'location' }    		
+        	<div class="venueItem"><input type="radio" name="location" value="${location.id}" />${location}<br/></div>
     	#{/list}
     	<br/>
-    	<input type="submit" value="Check In"/>
+    	<input class="btn" type="submit" value="Check In"/>
     	</div>
 	</div>
 
