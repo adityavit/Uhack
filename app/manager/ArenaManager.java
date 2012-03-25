@@ -22,15 +22,24 @@ public class ArenaManager{
 			attacker.setEngaged(true);
 			attacked.setEngaged(true);
 			attacker.setPower(attacker.getPower()-1);
-			attacker.setAttacked(attacked);
-			attacked.setAttacker(attacker);
+			//attacker.setAttacked(attacked.getId());
+			attacked.setAttacker(attacker.getId());
 			attacked.setQuestion(question);
+			//attacked.refresh();
+			//attacker.refresh();
+			//System.out.println("before attacker="+attacker);
+			//System.out.println("before  attacked="+attacked);
+			attacker.save();
+			attacked.save();
+			//System.out.println("attacker="+attacker);
+			//System.out.println("attacked="+attacked);
+			
 		}
 	}
 	
 	public static User respond(User user,String answer,boolean correct){
 		
-		User attacker = user.getAttacker();
+		User attacker = UserManager.getUserById(user.getAttacker());
 		user.setEngaged(false);
 		user.setQuestion(null);
 		
