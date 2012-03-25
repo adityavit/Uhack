@@ -1,5 +1,8 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'Arena' /}
+#{set 'moreScripts'}
+    #{script 'user.js'/}
+#{/set}
 <div id="arena">
 <div id="userInfo">
 	<div id="username">User: ${user.userName}</div>
@@ -11,13 +14,17 @@
 
 <div id="usersInLocation">
 	    #{list items:usersInLocation, as:'userInLocation' }
-			<div class="clan${userInLocation.clan}">
-					<div id="${userInLocation.id}">
+			<div class="clan${userInLocation.clan}" id="${userInLocation.id}">
 						<div class="attackUserName">${userInLocation.userName}</div>
 						<div class="attackPower">${userInLocation.power}</div>
 						<div class="attackHealth">${userInLocation.health}</div>
-					</div>
+						<button class="attack" onClick="javascript:attack('${userInLocation.id}')">Attack</button>
 			</div>        	
     	#{/list}
 </div>
 </div>
+
+<script>
+	var userName = "${user.userName}";
+	var userId = "${user.id}";
+</script>
