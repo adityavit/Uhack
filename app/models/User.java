@@ -12,9 +12,11 @@ import play.db.jpa.Model;
 public class User extends Model{
 	String userName;
 	int power;
-	int health;	
-	User attacker;	
-	User attacked;
+	int health;
+	
+	Long attacker;
+	
+	Long attacked;
 	
 	@ManyToOne
 	Location location;
@@ -30,8 +32,8 @@ public class User extends Model{
 	
 	
 	
-	public User(String userName, int power, int health, User attacker,
-			User attacked, Location location, Question question, Clan clan,
+	public User(String userName, int power, int health, Long attacker,
+			Long attacked, Location location, Question question, Clan clan,
 			boolean engaged) {
 		super();
 		this.userName = userName;
@@ -79,16 +81,16 @@ public class User extends Model{
 	public void setHealth(int health) {
 		this.health = health;
 	}
-	public User getAttacker() {
+	public Long getAttacker() {
 		return attacker;
 	}
-	public void setAttacker(User attacker) {
+	public void setAttacker(Long attacker) {
 		this.attacker = attacker;
 	}
-	public User getAttacked() {
+	public Long getAttacked() {
 		return attacked;
 	}
-	public void setAttacked(User attacked) {
+	public void setAttacked(Long attacked) {
 		this.attacked = attacked;
 	}
 	
@@ -130,6 +132,9 @@ public class User extends Model{
 	}
 	public void setQuestion(Question question) {
 		this.question = question;
+	}
+	public String toString(){
+		return this.userName+":"+this.power+":"+this.health+":attacked="+this.attacked+":attacker="+this.attacker+this.id;
 	}
 	
 	

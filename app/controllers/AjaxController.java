@@ -17,11 +17,8 @@ public class AjaxController extends Controller {
     	List<User> usersAtLocation = UserManager.getUsersByLocation(user);
     	Map userMap  = new HashMap();
     	userMap.put("user",getUserMap(user));
-    	if(user.getAttacker() != null){
-    		userMap.put("enemy",getUserMap(user.getAttacker()));
-    	}
-    	if(user.getAttacked() != null){
-    		userMap.put("victim",getUserMap(user.getAttacker()));
+    	if(user.getAttacker() != (long)-1){
+    		userMap.put("enemy",getUserMap(UserManager.getUserById(user.getAttacker())));
     	}
     	List checkedUsers = new ArrayList();
     	for(User userAtLocation : usersAtLocation){
@@ -33,12 +30,19 @@ public class AjaxController extends Controller {
     
     public static Map getUserMap(User user){
     	Map userObj = new HashMap();
+    	System.out.println("*************************user in getUserMap:"+user);
     	userObj.put("id",user.getId());
+    	if(user.isEngaged() != false){
     	userObj.put("engaged", user.isEngaged());
+    	}
     	userObj.put("power", user.getPower());
     	userObj.put("health", user.getHealth());
     	userObj.put("clan", user.getClan());
     	userObj.put("userName", user.getUserName());
+    	if(user.getQuestion() != null){
+    	userObj.put("question", user.getQuestion().getQuestion());
+    	userObj.put("answer", user.getQuestion().getAnswer());
+    	}
     	return userObj;
     }
 }

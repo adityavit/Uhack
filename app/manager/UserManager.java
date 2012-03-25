@@ -30,7 +30,7 @@ public class UserManager{
 		if(user == null){
 		User.Clan clan = getClan();
 		Location userLocation = LocationManager.getLocation(location);
-		user = new User(userName, 10, 100, null, null, userLocation, null,clan, false);
+		user = new User(userName, 10, 100,(long)-1, (long)-1, userLocation, null,clan, false);
 		user.save();
 		}else{
 			Location userLocation = LocationManager.getLocation(location);
@@ -50,7 +50,11 @@ public class UserManager{
 		return user;
 	}
 	
-	public static List<User> getUsersByLocation(User user){		
+	public static List<User> getUsersByLocation(User user){
+		System.out.println("-------------------------------------");
+		System.out.println("user:"+user);
+		System.out.println("user.location:"+user.getLocation());
+		System.out.println("-------------------------------------");
 		List<User> users = User.find("byLocation", user.getLocation()).fetch();
 		users.remove(user);
 		return users;
@@ -66,5 +70,12 @@ public class UserManager{
 		return victims;
 	}
 	
+	public static User getUserById(Long id){
+		return User.findById(id);
+	}
+	
+	public static void update(User newUserObj){
+		
+	}
 	
 }

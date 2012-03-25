@@ -1,6 +1,8 @@
 package controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import play.mvc.Controller;
 
@@ -19,8 +21,18 @@ public class ArenaController extends Controller {
 		render(usersInLocation,user);
 	}
 	
-	public static void getQuestion(){
+	public static void getQuestion(Long userId,Long victimId){
 		Question question = QuestionManager.getQuestion();
-		renderJSON(question);
+		User attackerUser = UserManager.getUserById(userId);
+		User victimUser = UserManager.getUserById(victimId);
+		ArenaManager.challenge(attackerUser, victimUser, question);
+		renderJSON(getQuestionMap(question));
+	}
+	
+	public static Map getQuestionMap(Question question){
+		Map questionMap = new HashMap();
+		questionMap.put("question", question.getQuestion());
+		questionMap.put("answer", question.getAnswer());
+		return questionMap;
 	}
 }
