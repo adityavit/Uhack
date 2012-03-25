@@ -1,6 +1,11 @@
 package models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
 import play.db.jpa.Model;
 
 @Entity
@@ -10,8 +15,13 @@ public class User extends Model{
 	int health;
 	User attacker;
 	User attacked;
+	
+	@ManyToOne
 	Location location;
+	
+	@OneToOne
 	Question question;
+	
 	Clan clan;
 	boolean engaged;
 	public static enum Clan{
@@ -81,6 +91,8 @@ public class User extends Model{
 	public void setAttacked(User attacked) {
 		this.attacked = attacked;
 	}
+	
+	
 	public Location getLocation() {
 		return location;
 	}

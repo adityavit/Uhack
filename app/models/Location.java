@@ -1,6 +1,11 @@
 package models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
 
@@ -10,6 +15,9 @@ public class Location extends Model{
 	float latitude;
 	float longitude;
 	String fourSquareId;
+	
+	@OneToMany(mappedBy="location",cascade = CascadeType.ALL)    
+	List<User> users;
 		
 	public Location(String name, float latitude, float longitude,
 			String fourSquareId) {
@@ -19,8 +27,15 @@ public class Location extends Model{
 		this.longitude = longitude;
 		this.fourSquareId = fourSquareId;
 	}
+		
+	public List<User> getUsers() {
+		return users;
+	}
 
-	
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
 	public String getFourSquareId() {
 		return fourSquareId;
 	}
