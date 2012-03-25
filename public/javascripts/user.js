@@ -53,8 +53,7 @@ var updateCheckedInUsers = function(checkInUsers){
 var createCheckedInUsers = function(user){
 	var userDiv = document.createElement("div");
 	userDiv.className = "clan"+user.clan+" "+"toAttack";
-	userDiv.id = user.id;
-	<img src="/public/images/${userInLocation.clan}.jpg" height="100px" width="100px"/>
+	userDiv.id = user.id;	
 	var image = document.createElement("img");
 	image.src="/public/images/"+user.clan+".jpg";
 	image.height = "100px";
