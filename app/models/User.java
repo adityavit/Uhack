@@ -12,14 +12,16 @@ public class User extends Model{
 	User attacked;
 	Location location;
 	Question question;
-	String clan;
+	Clan clan;
 	boolean engaged;
-	
+	public static enum Clan{
+		Vampire, Lycan, Human
+	}
 	
 	
 	
 	public User(String userName, int power, int health, User attacker,
-			User attacked, Location location, Question question, String clan,
+			User attacked, Location location, Question question, Clan clan,
 			boolean engaged) {
 		super();
 		this.userName = userName;
@@ -33,11 +35,11 @@ public class User extends Model{
 		this.engaged = engaged;
 	}
 	
-	public String getClan() {
+	public Clan getClan() {
 		return clan;
 	}
 
-	public void setClan(String clan) {
+	public void setClan(Clan clan) {
 		this.clan = clan;
 	}
 
