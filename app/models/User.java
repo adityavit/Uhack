@@ -12,11 +12,15 @@ public class User extends Model{
 	User attacked;
 	Location location;
 	Question question;
+	String clan;
 	boolean engaged;
 	
 	
+	
+	
 	public User(String userName, int power, int health, User attacker,
-			User attacked, Location location, Question question, boolean engaged) {
+			User attacked, Location location, Question question, String clan,
+			boolean engaged) {
 		super();
 		this.userName = userName;
 		this.power = power;
@@ -25,9 +29,18 @@ public class User extends Model{
 		this.attacked = attacked;
 		this.location = location;
 		this.question = question;
+		this.clan = clan;
 		this.engaged = engaged;
 	}
 	
+	public String getClan() {
+		return clan;
+	}
+
+	public void setClan(String clan) {
+		this.clan = clan;
+	}
+
 	public boolean isEngaged() {
 		return engaged;
 	}

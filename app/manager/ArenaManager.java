@@ -22,7 +22,7 @@ public class ArenaManager extends Model {
 		}
 	}
 	
-	public void respond(User user,String answer,boolean correct){
+	public User respond(User user,String answer,boolean correct){
 		
 		User attacker = user.getAttacker();
 		user.setEngaged(false);
@@ -30,8 +30,13 @@ public class ArenaManager extends Model {
 		
 		if(!correct){
 			user.setHealth(user.getHealth()-1);
-			attacker.setPower(attacker.getPower()+2);		
+			attacker.setPower(attacker.getPower()+2);
+			if(user.getHealth()==0){
+				user.setClan(attacker.getClan());
+			}
 		}
 		user.setAttacker(null);
+		return user;
 	}		
+	
 }
