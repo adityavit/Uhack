@@ -8,10 +8,10 @@ import models.Location;
 
 import play.db.jpa.Model;
 
-@Entity
-public class LocationManager extends Model{
-	public List<Location> fetchVenues(Location location){
-	    List<Location> locations = null;
+public class LocationManager{
+	
+	public static List<Location> fetchVenues(float latitude, float longitude){
+	    List<Location> locations = FoursquareManager.fetchVenues(latitude, longitude);
 	    return locations;		
 	}
 }

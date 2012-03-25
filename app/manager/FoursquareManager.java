@@ -42,7 +42,8 @@ public class FoursquareManager {
 						for(JsonElement item : items){
 							JsonObject venue = item.getAsJsonObject().getAsJsonObject("venue");
 							String venueName = venue.get("name").getAsString();
-							Location location = new Location(venueName,latitute,longitude);
+							System.out.println("venueName:"+venueName+"::latitute:"+latitute+"::longitude:"+longitude);
+							Location location = new Location(venueName,latitute,longitude,"");
 							userLocations.add(location);
 							System.out.println(venueName);
 						}
