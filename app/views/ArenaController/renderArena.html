@@ -1,0 +1,21 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+<div id="arena">
+<div id="userInfo">
+	<div id="username">User: ${user.userName}</div>
+	<div id="power">Power: ${user.power}</div>
+	<div id="health">Health: ${user.health}</div>
+</div>
+
+<div id="usersInLocation">
+	    #{list items:usersInLocation, as:'userInLocation' }
+			<div class="clan${userInLocation.clan}">
+					<div id="${userInLocation.id}">
+						<div class="attackUserName">${userInLocation.userName}</div>
+						<div class="attackPower">${userInLocation.power}</div>
+						<div class="attackHealth">${userInLocation.health}</div>
+					</div>
+			</div>        	
+    	#{/list}
+</div>
+</div>
