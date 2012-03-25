@@ -1,0 +1,39 @@
+Question(q1):
+ question: "Which city is the capital of the Indian state of Karnataka?|Bangalore|Mumbai|New Delhi|Chennai"
+ answer: "Bangalore"
+
+Question(q2):
+ question: "The only American president elected to more than two terms?|Abraham Lincoln|George Washinton|James Monroe|Thomas Jefferson"
+ answer: "Franklin D. Roosevelt"
+
+Question(q3):
+ question: "Who conducted the first ever Hackathon event?|Sun Micro Systems|Microsoft|OpenBSD|Apache"
+ answer: "OpenBSD"
+
+Question(q4):
+ question: "Which city is the capital of New York state?|New York City|Albany|Utica|Binghamton"
+ answer: "Albany"
+ 
+Question(q5):
+ question: "What is the height of Statue of Liberty?|56 meters|70 meters|46 meters|112 meters"
+ answer: "46 meters"
+ 
+Question(q6):
+ question: "What was Times Square known as before named what it is now?|York Square|Kamakshi Palya|Longacre Square|Bloomingdale Square"
+ answer: "Longacre Square"
+
+Question(q7):
+ question: "What was Times Square known as before named what it is now?|York Square|Kamakshi Palya|Longacre Square|Bloomingdale Square"
+ answer: "Longacre Square"
+
+Question(q8):
+ question: "What were the New York Knicks' official name in their first ever season?|Knicks|Knickerbockers|BockerKnickers|Bockers"
+ answer: "Knickerbockers"
+
+Question(q9):
+ question: "Which is the highest grossing film franchise?|Star Wars|James Bond|Lord of the Rings|Harry Potter"
+ answer: "Harry Potter"
+
+Question(q10):
+ question: "Who is the highest grossing film actor of all-time?|Tom Cruise|Brad Bitt|Leonardo Di Caprio|Samuel L Jackson"
+ answer: "Samuel L Jackson"
