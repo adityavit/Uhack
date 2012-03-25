@@ -1,13 +1,21 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
+
+<style>
+
+</style>
 <div>User: ${username}</div>
 Please Checkin to the closest location.
 <form id="venueForm" name="venueSelect" action="/arena" method="post">
 	<input type="hidden" name="username" value="${username}"/>
-	<div>
+	<div class="venueDiv">	
+		<div align="center">
     	#{list items:locations, as:'location' }
         	<input type="radio" name="location" value="${location.id}" />${location}<br/>
     	#{/list}
+    	<br/>
+    	<input type="submit" value="Check In"/>
+    	</div>
 	</div>
-<input type="submit" value="Check In"/>
+
 </form>
