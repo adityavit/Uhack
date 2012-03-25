@@ -7,12 +7,12 @@ import play.db.jpa.Model;
 @Entity
 public class Location extends Model{
 	String name;
-	double latitude;
-	double longitude;
+	float latitude;
+	float longitude;
 	
 	
 
-	public Location(String name, double latitude, double longitude) {
+	public Location(String name, float latitude, float longitude) {
 		super();
 		this.name = name;
 		this.latitude = latitude;
@@ -23,7 +23,7 @@ public class Location extends Model{
 		return latitude;
 	}
 
-	public void setLatitude(double latitude) {
+	public void setLatitude(float latitude) {
 		this.latitude = latitude;
 	}
 
@@ -31,7 +31,7 @@ public class Location extends Model{
 		return longitude;
 	}
 
-	public void setLongitude(double longitude) {
+	public void setLongitude(float longitude) {
 		this.longitude = longitude;
 	}
 
