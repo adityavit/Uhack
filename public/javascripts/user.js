@@ -52,7 +52,7 @@ var updateCheckedInUsers = function(checkInUsers){
 }
 var createCheckedInUsers = function(user){
 	var userDiv = document.createElement("div");
-	userDiv.className = "clan"+user.clan;
+	userDiv.className = "clan"+user.clan+" "+"toAttack";
 	userDiv.id = user.id;
 	var userName = document.createElement("div");
 	userName.className = "attackUserName";
