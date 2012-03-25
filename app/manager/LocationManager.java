@@ -15,4 +15,8 @@ public class LocationManager{
 	    return locations;		
 	}
 	
+	public static Location getLocation(Long locationId){
+		return Location.findById(locationId);
+	}
+	
 }

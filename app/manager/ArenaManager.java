@@ -13,9 +13,8 @@ import models.User;
 @Entity
 public class ArenaManager extends Model {
 	
-	public static List<User> getUsersByLocation(String userName){
-		User user = UserManager.getUser(userName);
-		List<User> users = UserManager.getUsersByLocation(user.getLocation());
+	public static List<User> getUsersByLocation(User user){
+		List<User> users = UserManager.getUsersByLocation(user);
 		return users;
 	}
 	

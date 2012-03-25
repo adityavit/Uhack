@@ -25,10 +25,15 @@ public class UserManager extends Model{
 		User user = User.all().first();
 		return user;
 	}
-	public static User createUser(String userName){
+	
+	public static User createUser(String userName,Long location){
+		User user = User.find("byUserName", userName).first();
+		if(user == null){
 		User.Clan clan = getClan();
-		User user = new User(userName, 10, 100, null, null, null, null,clan, false);
+		Location userLocation = LocationManager.getLocation(location);
+		user = new User(userName, 10, 100, null, null, userLocation, null,clan, false);
 		user.save();
+		}
 		return user;
 	}
 	public static User.Clan getClan(){
@@ -39,18 +44,15 @@ public class UserManager extends Model{
 	    }
 	    return User.Clan.values()[randomInt];
 	}
+	
 	public static User getUser(String userName){		
-		
 		User user = User.find("byUserName",userName).first();
-		if(user==null){
-			user = createUser(userName);
-			user.save();
-		}
 		return user;
 	}
 	
-	public static List<User> getUsersByLocation(Location location){		
-		List<User> users = User.find("byLocation", location).fetch();
+	public static List<User> getUsersByLocation(User user){		
+		List<User> users = User.find("byLocation", user.getLocation()).fetch();
+		users.remove(user);
 		return users;
 	}
 	

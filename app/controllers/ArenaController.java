@@ -10,9 +10,9 @@ import models.User;
 
 public class ArenaController extends Controller {
 	
-	public static void renderArena(String username){
-		User user = UserManager.createUser(username);
-		List<User> usersInLocation = ArenaManager.getUsersByLocation(username);
+	public static void renderArena(String username,String location){
+		User user = UserManager.createUser(username, Long.valueOf(location));
+		List<User> usersInLocation = ArenaManager.getUsersByLocation(user);
 		render(usersInLocation,user);
 	}
 }
