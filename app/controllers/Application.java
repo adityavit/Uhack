@@ -16,8 +16,9 @@ public class Application extends Controller {
     }
     
     public static void renderVenues(String username,float latitude, float longitude){
+    	 
     	List<Location> locations = LocationManager.fetchVenues(latitude, longitude);
-    	render(locations);
+    	render(locations,username);
     }
 
 }
