@@ -41,5 +41,7 @@ public class Question extends Model {
 	public void setUser(List<User> user) {
 		this.user = user;
 	}
-
+	public String toString(){
+		return this.question;
+	}
 }
