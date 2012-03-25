@@ -12,10 +12,12 @@ public class User extends Model{
 	User attacked;
 	Location location;
 	Question question;
+	boolean engaged;
+	
 	
 	public User(String userName, int power, int health, User attacker,
-			User attacked, Location location, Question question) {
-		super();	
+			User attacked, Location location, Question question, boolean engaged) {
+		super();
 		this.userName = userName;
 		this.power = power;
 		this.health = health;
@@ -23,7 +25,17 @@ public class User extends Model{
 		this.attacked = attacked;
 		this.location = location;
 		this.question = question;
+		this.engaged = engaged;
 	}
+	
+	public boolean isEngaged() {
+		return engaged;
+	}
+
+	public void setEngaged(boolean engaged) {
+		this.engaged = engaged;
+	}
+
 	public String getUserName() {
 		return userName;
 	}
