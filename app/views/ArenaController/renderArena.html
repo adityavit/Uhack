@@ -3,25 +3,34 @@
 #{set 'moreScripts'}
     #{script 'user.js'/}
 #{/set}
+<div class="consoleDiv">
 <div id="arena">
 <div id="userInfo">
-	<div id="username">User: ${user.userName}</div>
-	<div id="power">Power: ${user.power}</div>
-	<div id="health">Health: ${user.health}</div>
-	<div id="location">Location: ${user.location.name}</div>
-	<div id="health">Clan: ${user.clan}</div>
+	<div id="username" class="arenaConsole">User: ${user.userName}</div>
+	<div id="power" class="arenaConsole">Power: ${user.power}</div>
+	<div id="health" class="arenaConsole">Health: ${user.health}</div>
+	<div id="location" class="arenaConsole">Location: ${user.location.name}</div>
+	<div id="health" class="arenaConsole">Clan: ${user.clan}</div>
+	<div id="image" class="arenaConsole">	
+		<img src="/public/images/${user.clan}.jpg" height="200px" width="200px"/>
+	</div>
+</div>
+
+</div>
 </div>
 
 <div id="usersInLocation">
 	    #{list items:usersInLocation, as:'userInLocation' }
-			<div class="clan${userInLocation.clan}" id="${userInLocation.id}">
-						<div class="attackUserName">${userInLocation.userName}</div>
-						<div class="attackPower">${userInLocation.power}</div>
-						<div class="attackHealth">${userInLocation.health}</div>
-						<button class="attack" onClick="javascript:attack('${userInLocation.id}')">Attack</button>
-			</div>        	
+	    	#{if user.clan!=userInLocation.clan}    						
+			<div class="clan${userInLocation.clan} toAttack" id="${userInLocation.id}">
+						<img src="/public/images/${userInLocation.clan}.jpg" height="100px" width="100px"/>
+						<div class="attackUserName arenaItem">${userInLocation.userName}</div>
+						<div class="attackPower arenaItem">${userInLocation.power}</div>
+						<div class="attackHealth arenaItem">${userInLocation.health}</div>
+						<button class="attack btn" onClick="javascript:attack('${userInLocation.id}')">Attack</button>						
+			</div>        				
+			#{/if}
     	#{/list}
-</div>
 </div>
 
 <script>
