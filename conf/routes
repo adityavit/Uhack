@@ -6,6 +6,7 @@
 GET     /                                       		   Application.index
 POST    /venues          								   Application.renderVenues
 POST    /arena          								   ArenaController.renderArena
+GET		/questions										   ArenaController.getQuestion
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
