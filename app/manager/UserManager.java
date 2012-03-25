@@ -5,6 +5,8 @@ import java.util.Random;
 import javax.persistence.Entity;
 import javax.persistence.Query;
 
+import Utility.Utility;
+
 import play.*;
 import play.db.jpa.JPA;
 import play.db.jpa.Model;
@@ -12,10 +14,7 @@ import play.jobs.*;
 import play.test.*;
 import models.*;
 
-
-
-@Entity
-public class UserManager extends Model{	
+public class UserManager{	
 	
 	public User getFirstUser(){
 		if(User.count() == 0) {
@@ -32,10 +31,7 @@ public class UserManager extends Model{
 	}
 	public static User.Clan getClan(){
 		Random randomGenerator = new Random();
-		int randomInt = 0;
-	    for (int idx = 1; idx <= 10; ++idx){
-	      randomInt = randomGenerator.nextInt(3);	      
-	    }
+		int randomInt = Utility.getRandomNumber(User.Clan.values().length);
 	    return User.Clan.values()[randomInt];
 	}
 	public static User getUser(String userName){		

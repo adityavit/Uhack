@@ -10,8 +10,7 @@ import play.db.jpa.Model;
 import models.Question;
 import models.User;
 
-@Entity
-public class ArenaManager extends Model {
+public class ArenaManager{
 	
 	public static List<User> getUsersByLocation(String userName){
 		User user = UserManager.getUser(userName);
