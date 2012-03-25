@@ -17,7 +17,7 @@ public class Application extends Controller {
         System.out.println("User:"+user.getUserName());
        
         userManager.checkIn(user,null);
-        System.out.println("after:"+user.getUserName()+":"+user.getLocation().getName());
+        //System.out.println("after:"+user.getUserName()+":"+user.getLocation().getName());
         render();
         //System.out.println("Connection ---: "+DB.getConnection());
         
