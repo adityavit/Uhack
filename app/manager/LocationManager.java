@@ -14,4 +14,5 @@ public class LocationManager{
 	    List<Location> locations = FoursquareManager.fetchVenues(latitude, longitude);
 	    return locations;		
 	}
+	
 }

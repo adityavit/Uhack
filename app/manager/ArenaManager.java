@@ -1,6 +1,7 @@
 package manager;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.persistence.Entity;
 
@@ -11,7 +12,13 @@ import models.User;
 
 @Entity
 public class ArenaManager extends Model {
-	public void challenge(User attacker,User attacked,Question question){
+	
+	public static List<User> getUsersByLocation(String userName){
+		User user = UserManager.getUser(userName);
+		List<User> users = UserManager.getUsersByLocation(user.getLocation());
+		return users;
+	}
+	public static void challenge(User attacker,User attacked,Question question){
 		if(attacker.getPower()>0){
 			attacker.setEngaged(true);
 			attacked.setEngaged(true);
@@ -22,7 +29,7 @@ public class ArenaManager extends Model {
 		}
 	}
 	
-	public User respond(User user,String answer,boolean correct){
+	public static User respond(User user,String answer,boolean correct){
 		
 		User attacker = user.getAttacker();
 		user.setEngaged(false);
