@@ -17,9 +17,13 @@ import models.*;
 public class FoursquareManager {
 	
 	private static String fourSquareApi = "https://api.foursquare.com/v2/venues/explore?client_secret=JSV2M2W2RCLQARXVUPSURVSF2YFD3RWDNDN5C5NLBYFGJ2RU&client_id=BROS2FQB5KZIAAYBLXY5VMSMGJWZGBUC3NB02JFYB4P4TD4D&v=20120324&&limit=5&llAcc=50.0&ll=";
-
+	private static List<Location> persistedLocation = new ArrayList();
 	
 	public static List<Location> fetchVenues(float latitute,float longitude){
+		/* To send the location for the first request */
+		if(persistedLocation.size()!=0){
+			return persistedLocation;
+		}
 		JsonElement jse = null;
 		String fourSquareUrl = fourSquareApi + latitute +","+longitude;
 		List<Location> userLocations = null;
@@ -42,9 +46,18 @@ public class FoursquareManager {
 						for(JsonElement item : items){
 							JsonObject venue = item.getAsJsonObject().getAsJsonObject("venue");
 							String venueName = venue.get("name").getAsString();
+							String fourSquareId = venue.get("id").getAsString();
 							System.out.println("venueName:"+venueName+"::latitute:"+latitute+"::longitude:"+longitude);
-							Location location = new Location(venueName,latitute,longitude,"");
+							List<Location> addedLocation = Location.find("byFourSquareId", fourSquareId).fetch();
+							if(addedLocation.isEmpty()){
+							Location location = new Location(venueName,latitute,longitude,fourSquareId);
+							location.save();
+							persistedLocation.add(location);
 							userLocations.add(location);
+							}else{
+								persistedLocation.add(addedLocation.get(0));
+								userLocations.add(addedLocation.get(0));
+							}
 							System.out.println(venueName);
 						}
 					}

@@ -1,5 +1,13 @@
-<ul>
-    #{list items:locations, as:'location' }
-        <li><input type="radio" name="${location.fourSquareId}" />${location}</li>
-    #{/list}
-</ul>
+#{extends 'main.html' /}
+#{set title:'Home' /}
+<div>User: ${username}</div>
+Please Checkin to the closest location.
+<form id="venueForm" name="venueSelect" action="/arena" method="post">
+	<input type="hidden" name="username" value="${username}"/>
+	<div>
+    	#{list items:locations, as:'location' }
+        	<input type="radio" name="location" value="${location.id}" />${location}<br/>
+    	#{/list}
+	</div>
+<input type="submit" value="Check In"/>
+</form>
