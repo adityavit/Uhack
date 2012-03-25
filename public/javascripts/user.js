@@ -54,22 +54,28 @@ var createCheckedInUsers = function(user){
 	var userDiv = document.createElement("div");
 	userDiv.className = "clan"+user.clan+" "+"toAttack";
 	userDiv.id = user.id;
+	<img src="/public/images/${userInLocation.clan}.jpg" height="100px" width="100px"/>
+	var image = document.createElement("img");
+	image.src="/public/images/"+user.clan+".jpg";
+	image.height = "100px";
+	image.height = "100px";
 	var userName = document.createElement("div");
-	userName.className = "attackUserName";
+	userName.className = "attackUserName arenaItem";
 	userName.innerHTML = user.userName;
 	var power = document.createElement("div");
-	power.className = "attackPower";
+	power.className = "attackPower arenaItem";
 	power.innerHTML = user.power;
 	var health = document.createElement("div");
-	health.className = "attackHealth";
+	health.className = "attackHealth arenaItem";
 	health.innerHTML = user.health;
 	var attachBtn = document.createElement("button");
 	attachBtn.innerHTML = "Attack";
-	attachBtn.className = "attack";
+	attachBtn.className = "attack btn";
 	$(attachBtn).click(function(){
 		attack(user.id);
 	});
 	
+	userDiv.appendChild(image);
 	userDiv.appendChild(userName);
 	userDiv.appendChild(power);
 	userDiv.appendChild(health);
