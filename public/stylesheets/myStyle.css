@@ -1,0 +1,26 @@
+.myMainDiv{
+	text-align: center;
+	vertical-align: center;
+	margin:300px;	
+	padding: 20px;	
+	background-color:black;
+	opacity:0.4;
+	filter:alpha(opacity=60);
+	font-size: 24px; 	
+	font-weight: bolder;
+	font-family: Be Aggressive;
+	color: yellow;
+}
+.venueDiv{
+	text-align: center;
+	vertical-align: center;
+	margin:300px;	
+	padding: 20px;	
+	background-color:black;
+	opacity:0.4;
+	filter:alpha(opacity=60);
+	font-size: 24px; 	
+	font-weight: bolder;
+	font-family: Be Aggressive;
+	color: yellow;
+}
