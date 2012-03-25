@@ -18,9 +18,8 @@
 
 </div>
 </div>
-
-<div id="usersInLocation">
-		<div class="arenaItem">Enemies Around You</div>
+<div class="arenaItem">Enemies Around You</div>
+<div id="usersInLocation">		
 	    #{list items:usersInLocation, as:'userInLocation' }
 	    	#{if user.clan!=userInLocation.clan}    						
 			<div class="clan${userInLocation.clan} toAttack" id="${userInLocation.id}">
