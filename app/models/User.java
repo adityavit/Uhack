@@ -12,8 +12,8 @@ import play.db.jpa.Model;
 public class User extends Model{
 	String userName;
 	int power;
-	int health;
-	User attacker;
+	int health;	
+	User attacker;	
 	User attacked;
 	
 	@ManyToOne

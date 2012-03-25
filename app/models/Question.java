@@ -1,5 +1,7 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -13,7 +15,7 @@ public class Question extends Model {
 	String answer;
 	
 	@OneToMany(mappedBy="question",cascade = CascadeType.ALL)
-	User user;
+	List<User> user;
 	
 	
 	public Question(String question, String answer) {
@@ -33,12 +35,13 @@ public class Question extends Model {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-	public User getUser() {
+	public List<User> getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(List<User> user) {
 		this.user = user;
 	}
+	
 	
 	
 }
