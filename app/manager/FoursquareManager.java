@@ -16,7 +16,7 @@ import play.test.*;
 import models.*;
 public class FoursquareManager {
 	
-	private static String fourSquareApi = "https://api.foursquare.com/v2/venues/explore?client_secret=JSV2M2W2RCLQARXVUPSURVSF2YFD3RWDNDN5C5NLBYFGJ2RU&client_id=BROS2FQB5KZIAAYBLXY5VMSMGJWZGBUC3NB02JFYB4P4TD4D&v=20120324&&limit=5&llAcc=50.0&ll=";
+	private static String fourSquareApi = "https://api.foursquare.com/v2/venues/explore?client_secret=JSV2M2W2RCLQARXVUPSURVSF2YFD3RWDNDN5C5NLBYFGJ2RU&client_id=BROS2FQB5KZIAAYBLXY5VMSMGJWZGBUC3NB02JFYB4P4TD4D&v=20120324&&limit=10&llAcc=50.0&ll=";
 	private static List<Location> persistedLocation = new ArrayList();
 	
 	public static List<Location> fetchVenues(float latitute,float longitude){

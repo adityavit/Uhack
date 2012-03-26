@@ -15,7 +15,7 @@ var fetchUserData = function(){
 			updateCheckedInUsers(data["checkinUsers"]);
 			updateAttackedScene(data);
 		});
-	setTimeout("fetchUserData()",10000);
+	setTimeout("fetchUserData()",2000);
 }
 var updateQuestion = function(data){
 	if(data["user"]["engaged"] == true && answerUpdated == false){
@@ -26,14 +26,16 @@ var updateQuestion = function(data){
 		for(var i=1;i<question.length;i++){
 			jQuery('<input/>', {
 			    name: 'answer'+i,
+			    "class": 'answers',
 			    type: 'radio',
-			    text: question[i]
+			    text: "     "+question[i]
 			}).appendTo('#answerAttacked');
 			jQuery('<br/>').appendTo('#answerAttacked');
 		}
 		}
 		answerUpdated =true;
 		$("#questionaireAnswer").show();
+		$("#usersInLocation").hide();
 	}
 }
 
